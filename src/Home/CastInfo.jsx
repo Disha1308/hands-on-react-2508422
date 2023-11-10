@@ -1,19 +1,25 @@
 
-export default (props) => {
-  return (
-    <article>
-      <hgroup>
+export default ({info, handleClose}) => {
+  return ( 
+    <dialog id="cast-modal" open>
+      <article>
+        <a href="#close" aria-label="Close" 
+            className="close"
+            data-target="cast-modal"
+            onClick={handleClose}></a>
+        <hgroup>
         <div style={{
           display:"flex",
           gap:'1rem'
         }}>
-          <img style={{width:'200px'}} src={`images/${props.info.slug}.svg`} alt={props.info.name}/>
+          <img style={{width:'200px'}} src={`images/${info.slug}.svg`} alt={info.name}/>
           <hgroup>
-            <h1>{props.info.name}</h1>
-            <p>{props.info.bio}</p>
+            <h1>{info.name}</h1>
+            <p>{info.bio}</p>
           </hgroup>
         </div>
       </hgroup>
-    </article>
+      </article>
+    </dialog>
   )
 }

@@ -21,7 +21,7 @@ function App() {
           <button className="outline" onClick={() => alert('Hi there')}>Click Me</button>
           <Support />
           <ListCast onChoice={(info) => setMemberInfo(info)}/>
-          {memberInfo && <CastInfo info={memberInfo} />}
+          {memberInfo && <CastInfo info={memberInfo} handleClose={() => setMemberInfo(null)}/>}
         </hgroup>
       </article>
     </div>
