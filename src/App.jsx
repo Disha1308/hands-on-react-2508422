@@ -1,9 +1,13 @@
 import Welcome from "./Home/welcome";
 import Support from "./Home/support";
 import ListCast from "./Home/ListCast";
+import CastInfo from "./Home/CastInfo";
+import { useState } from "react";
 
 function App() {
-  const name = 'StarGazers'
+  const name = 'StarGazers';
+  const [memberInfo, setMemberInfo]= useState(null);
+  
   return (
     <div className="container">
       <article>
@@ -16,7 +20,8 @@ function App() {
             paving the way for peace and benevolence among all species. They are known for their enthusiasm for science, for their love of fun, and their dedication to education.</p>
           <button className="outline" onClick={() => alert('Hi there')}>Click Me</button>
           <Support />
-          <ListCast />
+          <ListCast onChoice={(info) => setMemberInfo(info)}/>
+          {memberInfo && <CastInfo info={memberInfo} />}
         </hgroup>
       </article>
     </div>
