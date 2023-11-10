@@ -3,7 +3,7 @@ export default ({info, handleClose}) => {
   return ( 
     <dialog id="cast-modal" open>
       <article>
-        <a href="#close" aria-label="Close" 
+        <a  aria-label="Close" 
             className="close"
             data-target="cast-modal"
             onClick={handleClose}></a>
