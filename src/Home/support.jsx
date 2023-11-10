@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+const pageName = document.title
 
 function Support () {
   const [count, setCount] = useState(0);
   const [view, setView] = useState(0);
+
+  
+  useEffect(() => {
+    view && (document.title = `${pageName} -- ${view}`)
+  })
 
   return (
     <div>
       <button className="outline"
         onClick={()=> setCount(count+1)}>
           Supported {count}
+          
       </button>
 
       <button className="outline"
