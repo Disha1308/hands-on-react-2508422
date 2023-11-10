@@ -1,5 +1,5 @@
 
-export default ({info, handleClose}) => {
+export default ({info, handleClose, handleNext}) => {
   return ( 
     <dialog id="cast-modal" open>
       <article>
@@ -16,6 +16,7 @@ export default ({info, handleClose}) => {
           <hgroup>
             <h1>{info.name}</h1>
             <p>{info.bio}</p>
+            <button className="outline" onClick={handleNext}>View Next</button>
           </hgroup>
         </div>
       </hgroup>

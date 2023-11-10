@@ -15,6 +15,14 @@ function App() {
     setCast(await response.json());
   }
 
+  function displayNextMember () {
+    let nextMemberId = memberInfo.id + 1;
+    if (nextMemberId >= cast.length){
+      nextMemberId = 0;
+    }
+    setMemberInfo(cast[nextMemberId]);
+  }
+
   useEffect (() => {
       fetchCast();
   })
@@ -34,7 +42,13 @@ function App() {
           <button className="outline" onClick={() => alert('Hi there')}>Click Me</button>
           <Support />
           <ListCast cast={cast} onChoice={(info) => setMemberInfo(info)}/>
-          {memberInfo && <CastInfo info={memberInfo} handleClose={() => setMemberInfo(null)}/>}
+          {memberInfo 
+            && 
+            <CastInfo 
+              info={memberInfo} 
+              handleClose={() => setMemberInfo(null)}
+              handleNext = {() => displayNextMember()}
+            />}
         </hgroup>
       </article>
     </div>
